@@ -770,6 +770,75 @@
     opacity: 1;
   }
 
+  /* About Page */
+.about-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 2rem;
+  }
+  
+  .about-intro p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .about-card {
+    height: 100%;
+  }
+  
+  .about-card h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+  }
+  
+  .benefit-list,
+  .steps-list {
+    list-style: none;
+  }
+  
+  .benefit-list li,
+  .steps-list li {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .bullet,
+  .step {
+    color: hsl(var(--primary));
+    font-weight: bold;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+  
+  .step {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: hsl(var(--primary) / 0.1);
+    border-radius: 50%;
+  }
+  
+  .privacy-notice {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .privacy-notice h2 {
+    margin-bottom: 1rem;
+  }
+
   
 /* Media Queries */
 @media (max-width: 640px) {
