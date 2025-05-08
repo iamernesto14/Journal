@@ -74,7 +74,7 @@ function setupEventListeners() {
   if (exportDataBtn) exportDataBtn.addEventListener('click', exportData);
 }
 
-function handleScroll() {
+export function handleScroll() {
   const currentScrollPosition = window.scrollY;
   const bottomNav = document.querySelector('.bottom-nav');
   const fab = document.querySelector('.fab');
@@ -119,13 +119,13 @@ function handleScroll() {
   lastScrollPosition = currentScrollPosition;
 }
 
-function toggleTheme() {
+export function toggleTheme() {
   const isDarkMode = body.classList.toggle('dark');
   updateThemeIcons(isDarkMode);
   localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 }
 
-function updateThemeIcons(isDarkMode) {
+export function updateThemeIcons(isDarkMode) {
   if (themeIcon) {
     themeIcon.innerHTML = isDarkMode 
       ? `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`
@@ -138,7 +138,7 @@ function updateThemeIcons(isDarkMode) {
   }
 }
 
-function setActivePage() {
+export function setActivePage() {
   const currentPage = window.location.pathname.split('/').pop();
   const navLinks = document.querySelectorAll('.nav-link');
   const bottomNavItems = document.querySelectorAll('.bottom-nav-item');
@@ -160,23 +160,23 @@ function setActivePage() {
   });
 }
 
-function showEntryForm() {
+export function showEntryForm() {
   entryForm.classList.remove('hidden');
   document.getElementById('title').focus();
 }
 
-function hideEntryForm() {
+export function hideEntryForm() {
   entryForm.classList.add('hidden');
   resetForm();
 }
 
-function resetForm() {
+export function resetForm() {
   journalForm.reset();
   document.getElementById('entry-id').value = '';
   formTitle.textContent = 'New Entry';
 }
 
-function handleFormSubmit(e) {
+export function handleFormSubmit(e) {
   e.preventDefault();
   const entryId = document.getElementById('entry-id').value;
   const title = document.getElementById('title').value;
@@ -193,7 +193,7 @@ function handleFormSubmit(e) {
   }
 }
 
-function renderJournalEntries() {
+export function renderJournalEntries() {
   if (!journalEntries) return;
   // Remove all children except emptyState
   Array.from(journalEntries.children).forEach(child => {
@@ -230,7 +230,7 @@ function renderJournalEntries() {
   }
 }
 
-function createEntryCard(entry) {
+export function createEntryCard(entry) {
   const card = document.createElement('div');
   card.className = `bento-card journal-card card-${entry.mood}`;
   card.dataset.id = entry.id;
@@ -250,7 +250,7 @@ function createEntryCard(entry) {
   return card;
 }
 
-function showEntryDetail(id) {
+export function showEntryDetail(id) {
   const entry = getEntries().find(entry => entry.id === id);
   if (!entry) return;
   document.getElementById('detail-title').textContent = entry.title;
@@ -262,11 +262,11 @@ function showEntryDetail(id) {
   entryDetail.classList.add('visible');
 }
 
-function hideEntryDetail() {
+export function hideEntryDetail() {
   entryDetail.classList.remove('visible');
 }
 
-function handleEditClick() {
+export function handleEditClick() {
   const id = entryDetail.dataset.id;
   const entry = getEntries().find(entry => entry.id === id);
   if (!entry) return;
@@ -279,15 +279,15 @@ function handleEditClick() {
   showEntryForm();
 }
 
-function showDeleteConfirmation() {
+export function showDeleteConfirmation() {
   confirmModal.classList.add('visible');
 }
 
-function hideDeleteConfirmation() {
+export function hideDeleteConfirmation() {
   confirmModal.classList.remove('visible');
 }
 
-function handleDeleteConfirmation() {
+export function handleDeleteConfirmation() {
   const id = entryDetail.dataset.id;
   deleteEntry(id);
   hideDeleteConfirmation();
@@ -297,11 +297,11 @@ function handleDeleteConfirmation() {
   }
 }
 
-function filterEntries() {
+export function filterEntries() {
   renderJournalEntries();
 }
 
-function formatDate(date, includeTime = false) {
+export function formatDate(date, includeTime = false) {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   if (includeTime) {
     options.hour = '2-digit';
@@ -310,7 +310,7 @@ function formatDate(date, includeTime = false) {
   return new Date(date).toLocaleDateString(undefined, options);
 }
 
-function capitalizeFirstLetter(string) {
+export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
