@@ -30,6 +30,35 @@
   --relaxed: 262 83% 82%;
 }
 
+.dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    
+    /* Custom colors for moods in dark mode */
+    --happy: 47 85% 57%;
+    --sad: 210 90% 66%;
+    --motivated: 126 64% 62%;
+    --stressed: 0 90% 79%;
+    --relaxed: 262 73% 72%;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -57,9 +86,17 @@
     background: linear-gradient(to bottom, hsl(210, 100%, 98%), hsl(220, 100%, 98%), hsl(0, 0%, 100%));
   }
 
+  .dark .home-gradient {
+    background: linear-gradient(to bottom, hsl(210, 30%, 10%), hsl(220, 30%, 8%), hsl(220, 30%, 6%));
+  }
+
   .page-gradient {
     background: linear-gradient(to bottom, hsl(210, 100%, 98%), hsl(220, 80%, 98%), hsl(0, 0%, 100%));
     min-height: calc(100vh - 160px);
+  }
+
+  .dark .page-gradient {
+    background: linear-gradient(to bottom, hsl(210, 30%, 10%), hsl(220, 30%, 8%), hsl(220, 30%, 6%));
   }
 
   /* Container */
@@ -216,6 +253,34 @@
   
   .bottom-nav.show {
     transform: translateY(0);
+  }
+
+  /* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+  }
+  
+  .theme-toggle:hover {
+    background-color: hsla(var(--muted), 0.8);
+  }
+  
+  .theme-toggle-small {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: hsl(var(--foreground));
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Buttons */
