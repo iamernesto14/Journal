@@ -56,7 +56,6 @@ describe('Journal Functions', () => {
         content: 'New Content',
         mood: 'happy'
       });
-      // Should update timestamp
       expect(savedEntries[0].timestamp.getTime()).toBeGreaterThan(existingEntry.timestamp.getTime());
     });
 

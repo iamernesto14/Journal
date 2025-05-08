@@ -31,13 +31,12 @@ import {
     describe('formatDate', () => {
       test('formats date without time', () => {
         const date = new Date('2023-01-01T12:00:00');
-        // Match the exact format your function produces
-        expect(formatDate(date)).toMatch(/\d{1,2} \w{3} \d{4}/); // Matches "1 Jan 2023"
+        expect(formatDate(date)).toMatch(/\d{1,2} \w{3} \d{4}/); 
       });
   
       test('formats date with time when requested', () => {
         const date = new Date('2023-01-01T14:30:00');
-        expect(formatDate(date, true)).toMatch(/\d{1,2}:\d{2}/); // Contains time
+        expect(formatDate(date, true)).toMatch(/\d{1,2}:\d{2}/); 
       });
     });
   

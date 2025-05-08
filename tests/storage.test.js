@@ -1,4 +1,3 @@
-// storage.test.js
 import { getEntries, saveEntries } from '../js/storage.js';
 
 beforeEach(() => {
