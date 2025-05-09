@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mindful Journal - A simple and elegant journal app.">
     <meta name="keywords" content="journal, diary, notes, app">
+    <link rel="icon" type="image/png" href="./images/favicon-32x32.png">
     <link rel="stylesheet" href="./css/styles.css">
     <title>Mindful Journal</title>
+    <script>
+      (function() {
+        // Prevent transitions during load
+        document.documentElement.classList.add('no-transitions');
+        // Apply theme
+        const theme = localStorage.getItem('theme') || 'light';
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+        // Re-enable transitions after load
+        window.addEventListener('load', () => {
+          document.documentElement.classList.remove('no-transitions');
+        });
+      })();
+    </script>
 </head>
 <body>
     <!-- Mobile Logo (hidden by default) -->

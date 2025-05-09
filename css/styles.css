@@ -30,7 +30,7 @@
   --relaxed: 262 83% 82%;
 }
 
-.dark {
+html.dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -80,6 +80,10 @@
     width: 100px;
     height: 100px;
     margin-right: 0.5rem;
+  }
+
+  .no-transitions {
+    transition: none !important;
   }
   
   .home-gradient {
