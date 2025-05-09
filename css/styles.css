@@ -30,7 +30,7 @@
   --relaxed: 262 83% 82%;
 }
 
-.dark {
+html.dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
@@ -80,6 +80,10 @@
     width: 100px;
     height: 100px;
     margin-right: 0.5rem;
+  }
+
+  .no-transitions {
+    transition: none !important;
   }
   
   .home-gradient {
@@ -1087,4 +1091,42 @@
       bottom: 1.5rem;
     }
   }
+  
+/* --- Entry Form Backdrop for Tablet/Desktop --- */
+@media (min-width: 641px) {
+  .entry-form-backdrop {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.18);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+  }
+  .entry-form {
+    position: relative;
+    top: auto; left: auto; right: auto; bottom: auto;
+    margin: 0 auto;
+    max-width: 420px;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    background: linear-gradient(to bottom right, hsl(var(--card)), hsl(var(--card) / 0.9));
+    border: 1px solid hsla(var(--border), 0.3);
+    padding: 2rem 1.5rem;
+    z-index: 100;
+    transform: none;
+    transition: box-shadow 0.2s, background 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+  }
+  .entry-form.hidden {
+    display: none;
+  }
+}
+
+/* --- End Entry Form Backdrop --- */
   

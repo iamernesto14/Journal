@@ -4,7 +4,6 @@ import { addEntry, updateEntry, deleteEntry, exportData, calculateCurrentStreak 
 import { initializeStatistics } from './statistics.js';
 
 // DOM Elements
-const body = document.body;
 const themeToggle = document.querySelector('.theme-toggle');
 const themeToggleSmall = document.querySelector('.theme-toggle-small');
 const themeIcon = document.getElementById('theme-icon');
@@ -48,9 +47,10 @@ export function init() {
 function initializeTheme() {
   const savedTheme = localStorage.getItem('theme') || 'light';
   if (savedTheme === 'dark') {
-    body.classList.add('dark');
+    document.documentElement.classList.add('dark');
     updateThemeIcons(true);
   } else {
+    document.documentElement.classList.remove('dark');
     updateThemeIcons(false);
   }
 }
@@ -120,7 +120,7 @@ export function handleScroll() {
 }
 
 export function toggleTheme() {
-  const isDarkMode = body.classList.toggle('dark');
+  const isDarkMode = document.documentElement.classList.toggle('dark');
   updateThemeIcons(isDarkMode);
   localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 }
@@ -162,11 +162,15 @@ export function setActivePage() {
 
 export function showEntryForm() {
   entryForm.classList.remove('hidden');
+  const backdrop = document.getElementById('entry-form-backdrop');
+  if (backdrop) backdrop.style.display = 'flex';
   document.getElementById('title').focus();
 }
 
 export function hideEntryForm() {
   entryForm.classList.add('hidden');
+  const backdrop = document.getElementById('entry-form-backdrop');
+  if (backdrop) backdrop.style.display = 'none';
   resetForm();
 }
 
