@@ -162,11 +162,15 @@ export function setActivePage() {
 
 export function showEntryForm() {
   entryForm.classList.remove('hidden');
+  const backdrop = document.getElementById('entry-form-backdrop');
+  if (backdrop) backdrop.style.display = 'flex';
   document.getElementById('title').focus();
 }
 
 export function hideEntryForm() {
   entryForm.classList.add('hidden');
+  const backdrop = document.getElementById('entry-form-backdrop');
+  if (backdrop) backdrop.style.display = 'none';
   resetForm();
 }
 
